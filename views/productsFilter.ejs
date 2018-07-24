@@ -1,0 +1,28 @@
+<% include partials/header %>
+<% if(param.update!=undefined&&param.update==="1"){ %>
+<div class="alert alert-success fade in alert-dismissible" style="margin-top:18px;">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+    <strong>Se actualizo correctamente el producto</strong></div>
+<% } %>
+<div class="page-header">
+<h1><%= param.modulo %></h1></div>
+
+<form class="form-inline" action="/<%= param.ruta %>" method="GET">
+    <input type="hidden" name="get" value="1">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Nombre del producto" name="name">
+    </div>&nbsp;&nbsp;
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Codigo" name="code">
+    </div>&nbsp;&nbsp;
+    <div class="form-group">
+    <select name="category" class="form-control">
+    <option value="">Cualquier categoria</option>
+        <% categories.forEach(function(category){ %>
+            <option value="<%= category.ID %>"><%= category.NAME %></option>
+        <% }); %>
+    </select>
+    </div>&nbsp;&nbsp;
+    <input type="submit" value="Buscar" class="btn btn-info">
+</form>
+<% include partials/footer %>

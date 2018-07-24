@@ -1,0 +1,26 @@
+<% include partials/header %>
+<div class="page-header">
+<h1>Reporte de ventas</h1></div>
+<p>Ventas del <%= obj[0] %> al <%= obj[1] %></p>
+<div class="row">
+        <div class="col-md-12">
+<table class="table table-striped table-hover"> 
+    <thead>
+<tr>
+        <th>Cantidad</th>
+        <th>Producto</th>
+        <th>Total</th>
+</tr>
+</thead>
+<tbody>
+<% sales.forEach(function(sale){ %>
+    <tr>
+        <td><%= sale.UNITS %></td>
+        <td><%= sale.NAME %></td>
+        <td><%= sale.PRICE %></td>
+    </tr>
+<% }); %>
+</tbody>
+</table>
+        </div></div>
+<% include partials/footer %>

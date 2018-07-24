@@ -1,0 +1,19 @@
+<% include partials/header %>
+<div class="page-header">
+<h1>VENTAS</h1></div>
+<form class="form-inline" action="/sales" method="POST">
+<div class="form-group">
+    <input type="date" name="fechaInicio" class="form-control">
+    </div>&nbsp;&nbsp;&nbsp;&nbsp;<div class="form-group">
+    <input type="date" name="fechaFin" class="form-control">
+</div>&nbsp;&nbsp;
+<div class="form-group">
+<select name="category" class="form-control">
+    <option value="">Cualquier categoria</option>
+        <% categories.forEach(function(category){ %>
+            <option value="<%= category.ID %>"><%= category.NAME %></option>
+        <% }); %>
+    </select></div>&nbsp;&nbsp;
+    <input type="submit" value="Buscar" class="btn btn-info">
+</form>
+<% include partials/footer %>
